@@ -2,12 +2,15 @@ import React from 'react';
 import questionDatabase from '../data/data';
 
 
-export function isNumber(str){
+export function isValidNumber(str, numQuestions){
+
     if (toString(str).trim() === ''){
         return false;
     }
-    console.log(str)
-    return !isNaN(str);
+    if (isNaN(str)){
+        return false;
+    }
+    return (str > 0 && str <= numQuestions);
 }
 
 export function RandomizeQuestions(){

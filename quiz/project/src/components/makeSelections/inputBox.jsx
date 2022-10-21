@@ -2,11 +2,12 @@ import React from 'react'
 export default function InputBox(props){
     return(
         <label className='input-box'>
-            {props.label}
+            {props.label} - {props.numQuestions} Questions:&emsp;
             <input 
                 type='text' 
-                onChange={props.onChange}
+                onChange={e=>props.onChange(e.target.value, props.id)}
             />
+            {props.inputResponse}
         </label>
     )
 }

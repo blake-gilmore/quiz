@@ -7,7 +7,9 @@ import {RandomizeQuestions} from './library/functions'
 export default function App(){
 
     const [randomQuestionList, setRandomQuestionList] = useState([]);
-    const [numQuestions, setNumQuestions] = useState(-1)
+    const [numQuestions, setNumQuestions] = useState([]);
+    const [questionsSet, setQuestionsSet] = useState(false);
+
 
     function handleQuestionChange(newValue){
         setNumQuestions(newValue);
@@ -18,10 +20,12 @@ export default function App(){
     return(
         <div className='quiz-app'>
             <Heading />
-            {numQuestions == -1 ? 
+            {questionsSet == false ? 
                 <MakeSelections 
                     numQuestions = {numQuestions} 
-                    handleQuestions = {handleQuestionChange}   
+                    handleQuestions = {handleQuestionChange}
+                    setNumQuestions = {setNumQuestions}
+                    setQuestionsSet = {setQuestionsSet}   
                 />
                 : 
                 <TakeQuiz 

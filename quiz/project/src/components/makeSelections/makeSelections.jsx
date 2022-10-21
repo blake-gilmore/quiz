@@ -8,7 +8,9 @@ export default function MakeSelections(props){
             <SelectionsPrompt />
             <QuestionSelections 
                 numQuestions = {props.numQuestions}  
-                handleQuestions = {props.handleQuestions} 
+                handleQuestions = {props.handleQuestions}
+                setNumQuestions = {props.setNumQuestions}
+                setQuestionsSet = {props.setQuestionsSet} 
             />
         </div>
     )

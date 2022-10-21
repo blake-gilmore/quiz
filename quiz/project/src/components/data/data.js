@@ -1,6 +1,5 @@
 
-const questionDatabase = [
-    //Section 1 - Threats, Attacks, and Vulnerabilities
+const sectionOne = [
     {
         question: "Ahmed is a sales manager with a major insurance company. He has received an email that is encouraging him to click on a link and fill out a survey. He is suspicious of the email, but it does mention a major insurance association, and that makes him think it might be legitimate. Which of the following best describes this attack?",
         incorrectAnswers: [
@@ -28,7 +27,9 @@ const questionDatabase = [
         ],
         correctAnswer: "SQL Injection",
     },
-    //Section 2 - Architecture and Design
+];
+
+const sectionTwo = [
     {
         question: "You are responsible for network security at an e-commerce company. You want to ensure that you are using best practices for the e-commerce website your company hosts. What standard would be the best for you to review?",
         incorrectAnswers: [
@@ -56,7 +57,9 @@ const questionDatabase = [
         ],
         correctAnswer: "A second NAS device with a full copy of the primary NAS",
     },
-    //Section 3 - Implementation
+];
+
+const sectionThree = [
     {
         question: "Adam is setting up a public key infrastructure (PKI) and knows that keeping the passphrases and encryption keys used to generate new keys is a critical part of how to ensure that the root certificate authority remains secure. Which of the following techniques is not a common solution to help prevent insider threats?",
         incorrectAnswers: [
@@ -84,7 +87,9 @@ const questionDatabase = [
         ],
         correctAnswer: "PEAP",
     },
-    //Section 4 - Operations and Incident Response
+];
+
+const sectionFour = [
     {
         question: "Mila wants to generate a unique digital fingerprint for a file, and needs to choose between a checksum and a hash. Which option should she choose and why should she choose it?",
         incorrectAnswers: [
@@ -111,8 +116,9 @@ const questionDatabase = [
             "A trend dashboard",
         ],
         correctAnswer: "A correlation dashboard",
-    },
-    //Section 5 - Governance, Risk, and Compliance
+    },  
+];
+const sectionFive = [
     {
         question: "Caroline has been asked to find an international standard to guide her company’s choices in implementing information security management systems. Which of the following would be the best choice for her?",
         incorrectAnswers: [
@@ -140,6 +146,34 @@ const questionDatabase = [
         ],
         correctAnswer: "Least privileges",
     },
+];
+
+const questionDatabase = [
+    {
+        id: 1,
+        sectionTitle: "Threats, Attacks, and Vulnerabilities",
+        sectionContent: sectionOne,
+    },
+    {
+        id: 2,
+        sectionTitle: "Architecture and Design",
+        sectionContent: sectionTwo,
+    },
+    {   
+        id: 3,
+        sectionTitle: "Implementation",
+        sectionContent: sectionThree,
+    },
+    {
+        id: 4,
+        sectionTitle: "Operations and Incident Response",
+        sectionContent: sectionFour,
+    },
+    {   
+        id: 5,
+        sectionTitle: "Governance, Risk, and Compliance",
+        sectionContent: sectionFive,
+    }, 
 ];
 
 //export {sectionOne, sectionTwo, sectionThree, sectionFour, sectionFive}
