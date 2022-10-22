@@ -13,7 +13,7 @@ export default function TakeQuiz(props){
             setCurrentScore(currentScore + 1);
 
         var nextQuestion = currentQuestion + 1;
-        if (nextQuestion == props.numQuestions)
+        if (nextQuestion == props.questions.length)
             setQuizCompleted(true);
         
         setCurrentQuestion(nextQuestion);

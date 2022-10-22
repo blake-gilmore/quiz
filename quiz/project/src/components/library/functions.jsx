@@ -13,10 +13,32 @@ export function isValidNumber(str, numQuestions){
     return (str > 0 && str <= numQuestions);
 }
 
-export function RandomizeQuestions(){
-    var fullList = [];
+export function RandomizeQuestions(newValue){
+    
+    var qList = [];
     for (let i = 0; i < questionDatabase.length; i++){
-        fullList.push(i+1);
+        var fullList = [];
+        
+        for (let j = 0; j < questionDatabase[i].sectionContent.length; j++)
+            fullList.push(j);
+        
+        let currentIndex = fullList.length,  randomIndex;
+        while (currentIndex != 0) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+        
+            [fullList[currentIndex], fullList[randomIndex]] = [
+            fullList[randomIndex], fullList[currentIndex]];
+        }
+
+        for (let j = 0; j < Number(newValue[i].value); j++){
+            qList.push(questionDatabase[i].sectionContent[fullList[j]]);
+        }
+    }
+
+    var fullList = [];
+    for (let i = 0; i < qList.length; i++){
+        fullList.push(i);
     }
 
     let currentIndex = fullList.length,  randomIndex;
@@ -27,15 +49,21 @@ export function RandomizeQuestions(){
         [fullList[currentIndex], fullList[randomIndex]] = [
         fullList[randomIndex], fullList[currentIndex]];
     }
-    return fullList;
+
+    var fullQList = [];
+    for (let i = 0; i < fullList.length; i++){
+        fullQList.push(qList[fullList[i]]);
+    }
+
+    return fullQList;
 }
 
 export function shuffleAnswers(questions, currentQuestion){
     var answers = []
-    for (let i = 0; i < questionDatabase[questions[currentQuestion]-1].incorrectAnswers.length; i++)
-        answers.push(questionDatabase[questions[currentQuestion]-1].incorrectAnswers[i]);
+    for (let i = 0; i < questions[currentQuestion].incorrectAnswers.length; i++)
+        answers.push(questions[currentQuestion].incorrectAnswers[i]);
     
-    answers.push(questionDatabase[questions[currentQuestion]-1].correctAnswer);
+    answers.push(questions[currentQuestion].correctAnswer);
 
     let currentIndex = answers.length,  randomIndex;
     

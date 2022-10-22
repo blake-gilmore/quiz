@@ -12,8 +12,9 @@ export default function App(){
 
 
     function handleQuestionChange(newValue){
+        setQuestionsSet(true);
         setNumQuestions(newValue);
-        setRandomQuestionList(RandomizeQuestions());
+        setRandomQuestionList(RandomizeQuestions(newValue));
     }
 
 
@@ -30,7 +31,7 @@ export default function App(){
                 : 
                 <TakeQuiz 
                     questions = {randomQuestionList}
-                    numQuestions = {numQuestions}
+                    numQuestions = {randomQuestionList.length}
                 />
             }
         </div>
